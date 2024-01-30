@@ -142,7 +142,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        {/*<h1>KyberSwap Widget Demo</h1> */}
+        
         <div className="header">
           <button
             onClick={() => (wallet ? disconnect(wallet) : connect())}

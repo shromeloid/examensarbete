@@ -13,7 +13,7 @@
   font-size: 1rem;
   font-weight: 500;
   padding: 0.75rem 2rem;
-  background: #28e0b9;
+  background: #e0e028;
   color: #313131;
   cursor: pointer;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 4%);
@@ -40,7 +40,13 @@
   top: 0;
   right: 0;
   left: 0;
-  background-color: #fff;
+  background-color: rgb(25, 33, 52) !important;
+  background: rgb(25, 33, 52);
+  background: linear-gradient(
+    360deg,
+    #2b5850 28%,
+    #152a26 75%
+  );
   padding: 24px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
   display: flex;

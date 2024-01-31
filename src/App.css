@@ -47,7 +47,7 @@
     #2b5850 28%,
     #152a26 75%
   );
-  padding: 24px;
+  padding: 2px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.04);
   display: flex;
   justify-content:baseline;
@@ -60,4 +60,18 @@
 
 .kyber {
   margin-left: 0px;
+}
+
+.etherscan {
+  outline: none;
+  border: none;
+  border-radius: 999px;
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  background: #6bdf9a;
+  color: #313131;
+  cursor: pointer;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 4%);
 }

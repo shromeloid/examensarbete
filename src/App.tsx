@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import "./App.css";
 import { Widget } from "@kyberswap/widgets";
 import { init, useWallets, useConnectWallet } from "@web3-onboard/react";
 import injectedModule from "@web3-onboard/injected-wallets";
 import { ethers } from "ethers";
 import walletConnectModule from "@web3-onboard/walletconnect";
+import TradingViewWidget from "./TradingViewWidget";
 
 const injected = injectedModule();
 const walletConnect = walletConnectModule();
@@ -139,6 +140,8 @@ function App() {
     isInBps: true,
   });
 
+  
+
   return (
     <div className="App">
       <div>
@@ -152,182 +155,17 @@ function App() {
           </button>
           <h1 className="titleText">Anton Exchange</h1>
         </div>
-        {/*<p className="title">Choose theme</p>
-
-        <div
-          style={{
-            display: "flex",
-            gap: "6px",
-            justifyContent: "space-around",
-          }}
-        >
-          <div>
-            <input
-              type="radio"
-              id="dark"
-              name="age"
-              value="dark"
-              onChange={(e) => {
-                setTheme(darkTheme);
-              }}
-            />
-            <label htmlFor="dark">Dark theme</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              id="light"
-              name="age"
-              value="light"
-              onChange={(e) => {
-                setTheme(lightTheme);
-              }}
-            />
-            <label htmlFor="light">Light theme</label>
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="custom"
-              name="age"
-              value="custom"
-              onChange={(e) => {
-                setTheme(undefined);
-              }}
-            />
-            <label htmlFor="custom">Custom</label>
-          </div>
-        </div>
-
-        <p className="title">Charge fee</p>
-        <div className="row">
-          chargeFeeBy
-          <div style={{ display: "flex" }}>
-            <div>
-              <input
-                type="radio"
-                id="currency_in"
-                name="chargeFeeBy"
-                value="currency_in"
-                onChange={(e) => {
-                  setFeeSetting({ ...feeSetting, chargeFeeBy: "currency_in" });
-                }}
-              />
-              <label htmlFor="currency_in">currency_in</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                id="currency_out"
-                name="chargeFeeBy"
-                value="currency_out"
-                onChange={(e) => {
-                  setFeeSetting({ ...feeSetting, chargeFeeBy: "currency_out" });
-                }}
-              />
-              <label htmlFor="currency_out"> currency_out</label>
-            </div>
-          </div>
-        </div>
-
-        <div className="row">
-          feeReceiver
-          <input
-            value={feeSetting.feeReceiver}
-            onChange={(e) =>
-              setFeeSetting({ ...feeSetting, feeReceiver: e.target.value })
-            }
-          />
-        </div>
-
-        <div className="row">
-          feeAmount
-          <input
-            value={feeSetting.feeAmount}
-            onChange={(e) =>
-              setFeeSetting({
-                ...feeSetting,
-                feeAmount: Number(e.target.value),
-              })
-            }
-          />
-        </div>
-
-        <div className="row" style={{ justifyContent: "flex-end" }}>
-          <input
-            type="checkbox"
-            checked={feeSetting.isInBps}
-            onChange={(e) => {
-              setFeeSetting({ ...feeSetting, isInBps: e.target.checked });
-            }}
-          />
-          <label htmlFor="isInBps">isInBps</label>
-        </div>
-
-        <p className="title">Trade route</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            justifyContent: "center",
-          }}
-        >
-          <div>
-            <label>
-              <input
-                type="radio"
-                name="traderoute"
-                onChange={(e) => {
-                  setEnableRoute(true);
-                }}
-                checked={enableRoute}
-              />
-              Enable
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                type="radio"
-                name="traderoute"
-                onChange={(e) => {
-                  setEnableRoute(false);
-                }}
-                checked={!enableRoute}
-              />
-              Disable
-            </label>
-          </div>
-        </div>
-        <p className="title">Enable dexes</p>
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            justifyContent: "center",
-          }}
-        >
-          <label>
-            Enable Dexes{" "}
-            <input
-              type="text"
-              onChange={(e) => {
-                setEnableDexes(e.target.value);
-              }}
-              checked={!enableRoute}
-            />
-          </label>
-        </div>*/}
       </div>
       
-      <div className="dextools">
+      {/*<div className="dextools">
         <iframe id="dextools-widget"
         title="DEXTools Trading Chart"
         width="500"
         height="400" src="https://www.dextools.io/widget-chart/en/ether/pe-light/0xa29fe6ef9592b5d408cca961d0fb9b1faf497d6d?theme=light&chartType=2&chartResolution=30&drawingToolbars=false"></iframe>
 
-      </div>
+  </div>*/}
+
+      <TradingViewWidget />
 
       <div className="kyber">
         <Widget
@@ -344,7 +182,11 @@ function App() {
           enableRoute={enableRoute}
           enableDexes={enableDexes}
         />
+        <div className="etherscan">
+          <a href="https://etherscan.io/" rel="noopener nofollow" target="_blank"><span className="blue-text">Find your token contracts here</span></a>
+        </div>
       </div>
+
     </div>
   );
 }
